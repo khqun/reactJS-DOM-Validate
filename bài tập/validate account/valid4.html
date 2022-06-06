@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <label for="account">Your account name</label>
+        <br>
+        <input type="text" id="account">
+        <button type="submit">submit</button>
+    </form>
+</body>
+
+</html>
+<script>
+    function validateAccount() {
+        let account = document.getElementById('account');
+        regexp = /^[_a-z0-9]{6,}$/;
+        return regexp.test(account.value);
+    }
+
+    function submit(event) {
+        let div = document.createElement('div');
+        div.id = 'error';
+        if (validateAccount()) {
+            div.style.color = "green";
+            div.innerHTML = "Your account is valid";
+        } else {
+            div.style.color = "red";
+            div.innerHTML = "Your account is invalid";
+        }
+        document.body.appendChild(div);
+        event.preventDefault();
+    }
+    const form = document.getElementById('form');
+    form.addEventListener('submit', submit);
+</script>
