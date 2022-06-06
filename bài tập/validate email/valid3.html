@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <label for="emailInput">Email</label>
+        <br>
+        <input type="text" id="emailInput">
+        <div id="error"></div> 
+        <button type="submit">submit</button>
+
+    </form>
+</body>
+
+</html>
+<script>
+
+    function getEmail() {
+        let emailInput = document.getElementById("emailInput");
+        return emailInput.value;
+    }
+
+    function isEmail(email) {
+        regexp = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+        if (regexp.test(email)) {
+            return true;
+        } else return false;
+    }
+
+    function submit(event) {
+        let email = getEmail();
+        if (!isEmail(email)) {
+            let error = document.getElementById('error');
+            error.innerHTML = 'Email is invalid';
+            error.style.color = 'red';
+            error.style.borderColor = 'red';
+        }
+        else{
+            error.innerHTML = 'Your email is valid';
+            error.style.color = 'green';
+        }
+        event.preventDefault();
+    }
+
+    const form = document.getElementById('form');
+    form.addEventListener('submit', submit);
+
+    // code cũ
+    // function isValidEmail(email) {
+
+    //     const emailRegex = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+    //     return emailRegex.test(email);
+
+    // }
+
+    // function submitForm(event) {
+    //     let emailInput = document.getElementById('emailInput');
+    //     if (isValidEmail(emailInput.value) === false) {
+    //         let emailError = document.getElementById('error');
+    //         emailError.innerHTML = 'Email is invalid' + isValidEmail(emailInput.value);
+    //         emailError.style.color = 'red';
+    //         emailInput.style.borderColor = 'red';
+    //     }
+    //     event.preventDefault();
+
+    // }
+    // const form = document.getElementById('form');
+    // form.addEventListener('submit', (event) => submitForm(event)); // khong co dua ngoac
+</script>

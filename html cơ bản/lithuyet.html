@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript parentNode</title>
+</head>
+<body>
+    <div id="main">
+        <p class="note">This is a note!</p>
+    </div>
+
+    <script>
+        let note = document.querySelector('#main');
+        console.log(note.parentNode);
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS CreateElement Demo</title>
+</head>
+<body>
+    <script>
+        let div = document.createElement('div');
+        div.id = 'content';
+        div.innerHTML = '<p>CreateElement example</p>';
+        document.body.appendChild(div);
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS setAttribute() Demo</title>
+</head>
+<body>
+    <button id="btnSend">Send</button>
+
+    <script>
+        let btnSend = document.querySelector('#btnSend');
+        if (btnSend) {
+            btnSend.setAttribute('name', 'send');
+            btnSend.setAttribute('disabled', '');
+        }
+    </script>
+</body>
+</html>
